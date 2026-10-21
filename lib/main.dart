@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'core/theme/app_theme.dart';
-import 'presentation/screens/home_screen.dart';
+import 'colors_app.dart';
  
 void main() {
   runApp(const MyApp());
@@ -13,7 +12,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.light,
+      theme: ThemeData(
+        useMaterial3: true,
+        fontFamily: 'Roboto',
+        scaffoldBackgroundColor: AppColors.background,
+      ),
       home: const HomeScreen(),
     );
   }
