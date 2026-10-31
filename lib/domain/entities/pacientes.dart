@@ -18,14 +18,14 @@ class Paciente {
     required this.eps,  
   });
  
-//   int _calcularEdad() {
-//     final now = DateTime.now();
-//     final birthDate = DateTime.fromMillisecondsSinceEpoch(fechaNacimiento);
-//     int age = now.year - birthDate.year;
-//     if (now.month < birthDate.month || (now.month == birthDate.month && now.day < birthDate.day)) {
-//       age--;
-//     }
-//     return age;
-//   }
+  int _calcularEdad() {
+    final now = DateTime.now();
+    final birthDate = DateTime.fromMillisecondsSinceEpoch(fechaNacimiento);
+    int age = now.year - birthDate.year;
+    if (now.month < birthDate.month || (now.month == birthDate.month && now.day < birthDate.day)) {
+      age--;
+    }
+    return age;
+  }
 }
  
