@@ -1,4 +1,4 @@
-import 'package:app_heridas/colors_app.dart';
+import 'package:app_heridas/core/colors_app.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
