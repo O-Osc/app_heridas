@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../colors_app.dart';
+import 'package:app_heridas/core/colors_app.dart';
 
 class CustomPickerInput extends StatefulWidget {
   const CustomPickerInput({super.key});
