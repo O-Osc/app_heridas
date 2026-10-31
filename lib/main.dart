@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'colors_app.dart';
+import 'core/theme_app.dart';
 import 'home_screen.dart';
 
 void main() {
@@ -13,11 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Roboto',
-        scaffoldBackgroundColor: AppColors.background,
-      ),
+      theme: AppTheme.light,
       home: const HomeScreen(),
     );
   }
