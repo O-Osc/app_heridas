@@ -24,6 +24,7 @@ class Customtext extends StatelessWidget {
       style: TextStyle(
         color: textColor ?? AppColors.negroOscuro,
         fontSize: fontSize ?? 16,
+
     ));
   }
 }
