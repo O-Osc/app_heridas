@@ -8,5 +8,9 @@ class AppColors {
   // Tonos Principales
   static const Color verdeOscuro = Color(0xFF0B4F45);
   static const Color verdeClaro = Color(0xFF1D8C74);
+  static const Color greyTextBox = Color(0xFFD2D8DB);
+  static const Color greyBackground = Color(0xFFF7F8F9);
+
+  static const Color negroOscuro = Colors.black;
 
 }

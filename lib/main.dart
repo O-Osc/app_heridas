@@ -1,14 +1,15 @@
+import 'package:app_heridas/Paciente/Pages/add-pacient.dart';
 import 'package:flutter/material.dart';
+
 import 'colors_app.dart';
-import 'home_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
- 
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
- 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Roboto',
         scaffoldBackgroundColor: AppColors.background,
       ),
-      home: const HomeScreen(),
+      home: const AddPacient(),
     );
   }
 }
