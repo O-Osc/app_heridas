@@ -6,6 +6,7 @@ class AppColors {
   static const Color background = Color(0xFFF5F6F5);
 
   // Tonos Principales
+  static const Color verdeBackground = Color(0xFF106D66);
   static const Color verdeOscuro = Color(0xFF0B4F45);
   static const Color verdeClaro = Color(0xFF1D8C74);
   static const Color greyTextBox = Color(0xFFD2D8DB);

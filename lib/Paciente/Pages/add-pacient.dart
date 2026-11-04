@@ -9,7 +9,16 @@ import '../../Widget/CustomPickerInput.dart';
 import '../../Widget/CustomDivider.dart';
 
 class AddPacient extends StatefulWidget {
-  const new({super.key});
+  final _formKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
+  final _identificationController = TextEditingController();
+  final _numberPhoneController = TextEditingController();
+  final _epsController = TextEditingController();
+  final _diagnosisController = TextEditingController();
+  final _backgroundController = TextEditingController();
+  final _observationsController = TextEditingController();
+
+  new({super.key});
 
   @override
   State<AddPacient> createState() => _AddPacientState();
@@ -32,6 +41,7 @@ class _AddPacientState extends State<AddPacient> {
       body: SingleChildScrollView(
         child: Center(
           child: Form(
+            key: widget._formKey,
             child: Padding(
               padding: EdgeInsetsGeometry.all(16),
               child: Column(
@@ -45,7 +55,10 @@ class _AddPacientState extends State<AddPacient> {
                     ),
                   ),
                   Customtext(text: 'Nombre completo'),
-                  CustomTextField(hintText: 'Ej. Maria Garcia López'),
+                  CustomTextField(
+                    hintText: 'Ej. Maria Garcia López',
+                    controllerInput: widget._nameController,
+                  ),
                   SizedBox(height: 20),
                   Customtext(text: 'Fecha nacimiento'),
                   CustomPickerInput(),
@@ -53,13 +66,22 @@ class _AddPacientState extends State<AddPacient> {
                   CustomGenderField(),
                   SizedBox(height: 20),
                   Customtext(text: 'Numero de documento'),
-                  CustomTextField(hintText: 'Ej. 1234567890'),
+                  CustomTextField(
+                    hintText: 'Ej. 1234567890',
+                    controllerInput: widget._identificationController,
+                  ),
                   SizedBox(height: 20),
                   Customtext(text: 'Teléfono de contacto'),
-                  CustomTextField(hintText: 'Ej. 300 123 4567'),
+                  CustomTextField(
+                    hintText: 'Ej. 300 123 4567',
+                    controllerInput: widget._numberPhoneController,
+                  ),
                   SizedBox(height: 20),
                   Customtext(text: 'EPS'),
-                  CustomTextField(hintText: 'Ej. Salud Total'),
+                  CustomTextField(
+                    hintText: 'Ej. Salud Total',
+                    controllerInput: widget._epsController,
+                  ),
                   //Seccion de informacion cliica
                   Customdivider(),
                   Padding(
@@ -70,18 +92,23 @@ class _AddPacientState extends State<AddPacient> {
                     ),
                   ),
                   Customtext(text: 'Diagnóstico principal'),
-                  CustomTextField(hintText: 'Ej. Pie diabetico, úlcera....'),
+                  CustomTextField(
+                    hintText: 'Ej. Pie diabetico, úlcera....',
+                    controllerInput: widget._diagnosisController,
+                  ),
                   SizedBox(height: 20),
                   Customtext(text: 'Antecedentes relevantes'),
                   CustomTextField(
                     hintText: 'Ej. Diabetes tipo 2, hipertension....',
                     maxLine: 3,
+                    controllerInput: widget._backgroundController,
                   ),
                   SizedBox(height: 20),
                   Customtext(text: 'Observaciones iniciales'),
                   CustomTextField(
                     hintText: 'Ej. Cual quier informacion adicional relevante al inicio del seguimiento..',
                     maxLine: 3,
+                    controllerInput: widget._observationsController,
                   ),
                   Customdivider(),
                   Custombutton(
@@ -96,8 +123,7 @@ class _AddPacientState extends State<AddPacient> {
                     colorButton: Colors.white,
                     colorBorder: AppColors.verdeOscuro,
                     colorText: AppColors.verdeOscuro,
-                  )
-
+                  ),
                 ],
               ),
             ),

@@ -1,11 +1,13 @@
 import 'package:app_heridas/Widget/CustomText.dart';
 import 'package:flutter/material.dart';
 import 'package:app_heridas/core/colors_app.dart';
+
 class Custombutton extends StatelessWidget {
   final String texto;
   final Color colorButton;
   final Color colorBorder;
   final Color colorText;
+  final VoidCallback? onPressed;
 
   const Custombutton({
     super.key,
@@ -13,6 +15,7 @@ class Custombutton extends StatelessWidget {
     this.colorButton = AppColors.verdeOscuro,
     this.colorBorder = AppColors.verdeClaro,
     this.colorText = Colors.white,
+    this.onPressed,
   });
 
   @override
@@ -21,7 +24,7 @@ class Custombutton extends StatelessWidget {
       children: [
         Expanded(
           child: OutlinedButton(
-            onPressed: () {},
+            onPressed: onPressed,
             style: OutlinedButton.styleFrom(
               backgroundColor: colorButton,
 

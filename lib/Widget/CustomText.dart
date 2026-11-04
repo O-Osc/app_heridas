@@ -2,18 +2,15 @@ import 'package:app_heridas/core/colors_app.dart';
 import 'package:flutter/material.dart';
 
 class Customtext extends StatelessWidget {
-
   final String text;
   final Color? textColor;
   final double? fontSize;
 
   const Customtext({
-
     super.key,
     required this.text,
     this.textColor,
     this.fontSize,
-
   });
 
   @override
@@ -23,8 +20,8 @@ class Customtext extends StatelessWidget {
       textAlign: TextAlign.right,
       style: TextStyle(
         color: textColor ?? AppColors.negroOscuro,
-        fontSize: fontSize ?? 16,
-
-    ));
+        fontSize: fontSize ?? 14,
+      ),
+    );
   }
 }

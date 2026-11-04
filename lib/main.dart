@@ -1,3 +1,4 @@
+import 'package:app_heridas/Login/Pages/Login.dart';
 import 'package:app_heridas/Paciente/Pages/add-pacient.dart';
 import 'package:flutter/material.dart';
 import 'core/theme_app.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
-      home: const HomeScreen(),
+      home: const Login(),
     );
   }
 }
