@@ -21,11 +21,13 @@ class Paciente {
   int _calcularEdad() {
     final now = DateTime.now();
     final birthDate = DateTime.fromMillisecondsSinceEpoch(fechaNacimiento);
-    int age = now.year - birthDate.year;
+    int edad = now.year - birthDate.year;
     if (now.month < birthDate.month || (now.month == birthDate.month && now.day < birthDate.day)) {
-      age--;
+      edad--;
     }
-    return age;
+    return edad;
   }
+
+  int get edad => _calcularEdad();
 }
  

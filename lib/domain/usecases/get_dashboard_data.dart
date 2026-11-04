@@ -13,12 +13,6 @@ class GetDashboardData {
   final DashboardRepository repository;
  
   const GetDashboardData(this.repository);
- 
-  // DashboardData call() {
-  //   return DashboardData(
-  //     stats: repository.obtenerEstadisticas(),
-  //   );
-  // }
 
 Future<DashboardData> call() async {
 	final stats = await repository.obtenerEstadisticas();
