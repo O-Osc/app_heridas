@@ -3,7 +3,8 @@ import 'package:app_heridas/Paciente/Pages/add-pacient.dart';
 import 'package:flutter/material.dart';
 
 import 'core/theme_app.dart';
-import 'home_screen.dart';
+import 'home/home_screen.dart';
+import 'Paciente/Pages/list_pacients.dart';
 
 void main() {
   runApp(const MyApp());
