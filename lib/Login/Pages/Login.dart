@@ -5,6 +5,7 @@ import 'package:app_heridas/Widget/CustomText.dart';
 import 'package:app_heridas/Widget/CustomTextField.dart';
 import 'package:app_heridas/core/colors_app.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -113,6 +114,9 @@ class _LoginState extends State<Login> {
                           colorButton: AppColors.verdeOscuro,
                           colorBorder: AppColors.verdeOscuro,
                           colorText: Colors.white,
+                          onPressed: () {
+                            context.go('/home');
+                          },
                         ),
                         // Separador "o"
                         Customdivider(),

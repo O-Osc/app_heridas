@@ -1,10 +1,7 @@
-import 'package:app_heridas/Login/Pages/RegisterUser.dart';
-import 'package:app_heridas/Paciente/Pages/add-pacient.dart';
 import 'package:flutter/material.dart';
+import 'routes/app_router.dart';
 
 import 'core/theme_app.dart';
-import 'home/home_screen.dart';
-import 'Paciente/Pages/list_pacients.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,10 +12,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
-      home: const RegisterUser(),
+      routerConfig: appRouter,
     );
   }
 }
