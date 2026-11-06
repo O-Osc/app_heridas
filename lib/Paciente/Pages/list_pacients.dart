@@ -1,3 +1,4 @@
+import 'package:app_heridas/Widget/CustomButton.dart';
 import 'package:app_heridas/Widget/CustomFilterChip.dart';
 import 'package:app_heridas/Widget/CustomFilterPanel.dart';
 import 'package:app_heridas/Widget/CustomPacientCard.dart';
@@ -5,6 +6,7 @@ import 'package:app_heridas/Widget/CustomScreenHeader.dart';
 import 'package:app_heridas/Widget/CustomSearchField.dart';
 import 'package:app_heridas/core/colors_app.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Paciente {
   final String nombre;
@@ -87,7 +89,8 @@ class _ListPacientsState extends State<ListPacients> {
     final String query = _busqueda.trim().toLowerCase();
 
     final List<Paciente> lista = _pacientes.where((p) {
-      final bool coincideBusqueda = query.isEmpty ||
+      final bool coincideBusqueda =
+          query.isEmpty ||
           p.nombre.toLowerCase().contains(query) ||
           p.diagnostico.toLowerCase().contains(query);
       final bool coincideDiagnostico =
@@ -109,8 +112,18 @@ class _ListPacientsState extends State<ListPacients> {
 
   String _formatearFecha(DateTime f) {
     const meses = [
-      'ene', 'feb', 'mar', 'abr', 'may', 'jun',
-      'jul', 'ago', 'sep', 'oct', 'nov', 'dic',
+      'ene',
+      'feb',
+      'mar',
+      'abr',
+      'may',
+      'jun',
+      'jul',
+      'ago',
+      'sep',
+      'oct',
+      'nov',
+      'dic',
     ];
     return '${f.day} ${meses[f.month - 1]} ${f.year}';
   }
@@ -122,25 +135,55 @@ class _ListPacientsState extends State<ListPacients> {
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      body: Column(
-        children: [
-          // Encabezado blanco (título + botón "Nuevo")
-          Container(
-            color: Colors.white,
-            child: SafeArea(
-              bottom: false,
-              child: CustomScreenHeader(
-                title: 'Pacientes',
-                actionText: 'Nuevo',
-                actionIcon: Icons.add,
-                onActionPressed: () {
-                  // TODO: Navigator.push hacia AddPacient
-                },
-              ),
+
+      appBar: AppBar(
+        leadingWidth: 50,
+        actionsPadding: const EdgeInsets.symmetric(horizontal: 12),
+        titleSpacing: 0,
+        leading: IconButton(
+          onPressed: () {
+            context.go('/home');
+          },
+          icon: Icon(Icons.arrow_back, color: AppColors.verdeOscuro),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: const Text(
+          'Pacientes',
+          style: const TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: AppColors.verdeOscuro,
+          ),
+        ),
+        actions: [
+          OutlinedButton(
+            onPressed: () {
+              context.push('/patient-new');
+            },
+            style: OutlinedButton.styleFrom(
+              backgroundColor: AppColors.verdeOscuro,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              spacing: 5.0,
+              children: [
+                Icon(Icons.add, color: AppColors.whiteBackground, size: 20),
+                Text(
+                  'Nuevo',
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.whiteBackground,
+                  ),
+                ),
+              ],
             ),
           ),
-
-          // Contenido con scroll
+        ],
+      ),
+      body: Column(
+        children: [
           Expanded(
             child: ListView(
               padding: const EdgeInsets.all(16),
@@ -157,8 +200,9 @@ class _ListPacientsState extends State<ListPacients> {
                     CustomFilterChip(
                       label: 'Por nombre',
                       selected: _ordenarPorNombre,
-                      onTap: () =>
-                          setState(() => _ordenarPorNombre = !_ordenarPorNombre),
+                      onTap: () => setState(
+                        () => _ordenarPorNombre = !_ordenarPorNombre,
+                      ),
                     ),
                     const SizedBox(width: 10),
                     CustomFilterChip(
@@ -174,7 +218,9 @@ class _ListPacientsState extends State<ListPacients> {
                       borderColor: _filtrosAbiertos
                           ? AppColors.verdeClaro.withValues(alpha: 0.15)
                           : null,
-                      textColor: _filtrosAbiertos ? AppColors.verdeOscuro : null,
+                      textColor: _filtrosAbiertos
+                          ? AppColors.verdeOscuro
+                          : null,
                       onTap: () =>
                           setState(() => _filtrosAbiertos = !_filtrosAbiertos),
                     ),

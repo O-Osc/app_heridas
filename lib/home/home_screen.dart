@@ -21,7 +21,9 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: AppColors.verdeOscuro,
         actions: <Widget>[
           OutlinedButton(
-            onPressed: () {},
+            onPressed: () {
+              context.go('/');
+            },
             style: OutlinedButton.styleFrom(side: BorderSide.none),
             child: Icon(Icons.logout, color: Colors.white, size: 20),
           ),
@@ -133,7 +135,7 @@ class HomeScreen extends StatelessWidget {
             bgColor: const Color(0xFFDCEFEA),
             iconBgColor: AppColors.verdeOscuro,
             onPressed: () {
-              context.go('/patient-list');
+              context.push('/patient-list');
             },
           ),
         ),
@@ -148,7 +150,7 @@ class HomeScreen extends StatelessWidget {
                 bgColor: const Color(0xFFDFF3E3),
                 iconBgColor: AppColors.verdeClaro,
                 onPressed: () {
-                  context.go('/patient-new');
+                  context.push('/patient-new');
                 },
               ),
             ),
@@ -160,7 +162,7 @@ class HomeScreen extends StatelessWidget {
                 bgColor: const Color(0xFFFBE9D0),
                 iconBgColor: const Color(0xFFE0A030),
                 onPressed: () {
-                  context.go('/patient-new');
+                  context.push('/patient-new');
                 },
               ),
             ),

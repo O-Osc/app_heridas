@@ -1,6 +1,7 @@
 import 'package:app_heridas/Widget/CustomText.dart';
 import 'package:app_heridas/core/colors_app.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../Widget/CustomButton.dart';
 import '../../Widget/CustomGenderField.dart';
@@ -31,12 +32,16 @@ class _AddPacientState extends State<AddPacient> {
       backgroundColor: AppColors.background,
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
+        leadingWidth: 50,
+        titleSpacing: 0,
         title: const Text(
           'Agregar Paciente',
-          style: TextStyle(backgroundColor: AppColors.verdeOscuro),
+          style: TextStyle(color: AppColors.whiteBackground),
         ),
-        backgroundColor: AppColors.verdeClaro,
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+        backgroundColor: AppColors.verdeOscuro,
+        leading: IconButton(onPressed: () {
+          context.pop();
+        }, icon: Icon(Icons.arrow_back, color: AppColors.whiteBackground,)),
       ),
       body: SingleChildScrollView(
         child: Center(
