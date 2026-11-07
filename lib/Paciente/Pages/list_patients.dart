@@ -24,14 +24,14 @@ class Paciente {
   });
 }
 
-class ListPacients extends StatefulWidget {
-  const ListPacients({super.key});
+class ListPatients extends StatefulWidget {
+  const ListPatients({super.key});
 
   @override
-  State<ListPacients> createState() => _ListPacientsState();
+  State<ListPatients> createState() => _ListPatientsState();
 }
 
-class _ListPacientsState extends State<ListPacients> {
+class _ListPatientsState extends State<ListPatients> {
   // Fecha de referencia para "Última semana / Último mes".
   // En producción usa DateTime.now(); aquí es fija porque los datos son de ejemplo.
   final DateTime _fechaReferencia = DateTime(2026, 6, 22);

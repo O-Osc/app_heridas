@@ -9,7 +9,7 @@ import '../../Widget/CustomTextField.dart';
 import '../../Widget/CustomPickerInput.dart';
 import '../../Widget/CustomDivider.dart';
 
-class AddPacient extends StatefulWidget {
+class AddPatient extends StatefulWidget {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _identificationController = TextEditingController();
@@ -22,10 +22,10 @@ class AddPacient extends StatefulWidget {
   new({super.key});
 
   @override
-  State<AddPacient> createState() => _AddPacientState();
+  State<AddPatient> createState() => _AddPatientState();
 }
 
-class _AddPacientState extends State<AddPacient> {
+class _AddPatientState extends State<AddPatient> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
