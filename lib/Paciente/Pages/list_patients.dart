@@ -273,6 +273,7 @@ class _ListPatientsState extends State<ListPatients> {
                         ultimaRevision: _formatearFecha(p.ultimaRevision),
                         onTap: () {
                           // TODO: navegar al detalle del paciente
+                          context.push('/ProfilePatient');
                         },
                       ),
                     ),
