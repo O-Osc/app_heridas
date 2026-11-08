@@ -1,6 +1,14 @@
+import 'package:app_heridas/Paciente/Pages/TabarViews/EvolutionTab.dart';
+import 'package:app_heridas/Paciente/Pages/TabarViews/ImageTab.dart';
+import 'package:app_heridas/Paciente/Pages/TabarViews/ResumeTab.dart';
+import 'package:app_heridas/Paciente/Pages/TabarViews/StatisticsTab.dart';
+import 'package:app_heridas/Widget/CustomButton.dart';
+import 'package:app_heridas/Widget/CustomText.dart';
+import 'package:app_heridas/Widget/WoundEvolutionChart.dart';
 import 'package:app_heridas/core/colors_app.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 class ProfilePatient extends StatefulWidget {
   const ProfilePatient({super.key});
@@ -92,7 +100,7 @@ class _ProfilePatientState extends State<ProfilePatient>
                             "Ana Martínez",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: isSmallScreen ? 18 : 20,
+                              fontSize: isSmallScreen ? 14 : 18,
                               fontWeight: FontWeight.bold,
                             ),
                             maxLines: 1,
@@ -103,7 +111,7 @@ class _ProfilePatientState extends State<ProfilePatient>
                             "72 años · Femenino · Pie diabético",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: isSmallScreen ? 13 : 15,
+                              fontSize: isSmallScreen ? 10 : 13,
                               fontWeight: FontWeight.w300,
                             ),
                             maxLines: 2,
@@ -165,63 +173,18 @@ class _ProfilePatientState extends State<ProfilePatient>
             child: TabBarView(
               controller: _tabController,
               children: [
-                //Pestaña 1: Informacion del paciente.
-                Container(
-                  color: Colors.grey.shade200,
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    spacing: 10,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Información del paciente',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: Colors.grey.shade200),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withValues(alpha: 0.03),
-                                blurRadius: 8,
-                                offset: const Offset(0, 2),
-                              ),
-                            ],
-                          ),
-                        child: Column(
-                          children: [
-                            _buildInfoRow(
-                              icon: Icons.phone_outlined,
-                              text: '+57 300 456 7890',
-                            ),
-                            _buildInfoRow(
-                              icon: Icons.mail_outline,
-                              text: 'ana.martinez@correo.com',
-                            ),
-                            _buildInfoRow(
-                              icon: Icons.location_on_outlined,
-                              text: 'Calle 45 #12-30, Valledupar',
-                            ),
-                          ],
-                        )
-                      ),
-                    ],
-                  ),
-                ),
+                //Pestaña 1: Informacion del paciente
+                ResumeTab(),
                 // Pestaña 2: Estadísticas
-                const Center(child: Text('Vista de Estadísticas')),
+                StatisticsTab(),
                 // Pestaña 3: Evolución
-                const Center(child: Text('Vista de Evolución')),
+                EvolutionTab(evolutions: [],),
                 // Pestaña 4: Galería
-                const Center(child: Text('Vista de Galería')),
+                ImageTab(photos: [],)
               ],
             ),
           ),
+          SizedBox(height: 20),
         ],
       ),
     );
@@ -244,24 +207,14 @@ class _ProfilePatientState extends State<ProfilePatient>
         children: [
           FittedBox(
             fit: BoxFit.scaleDown,
-            child: Text(
-              value,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: isSmallScreen ? 22 : 26,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            child: Text(value, style: _styleTextCustom(isSmallScreen)),
           ),
           const SizedBox(height: 4),
           FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(
               label,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: isSmallScreen ? 12 : 14,
-              ),
+              style: _styleTextCustom(isSmallScreen),
               maxLines: 1,
             ),
           ),
@@ -270,36 +223,13 @@ class _ProfilePatientState extends State<ProfilePatient>
     );
   }
 
-  Widget _buildInfoRow({required IconData icon, required String text}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: const Color(0xFF00897B).withValues(alpha: 0.1),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Icon(
-              icon,
-              color: const Color(0xFF00897B),
-              size: 20,
-            ),
-          ),
-          const SizedBox(width: 16),
-          Expanded(
-            child: Text(
-              text,
-              style: const TextStyle(
-                fontSize: 14,
-                color: Colors.black87,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
-        ],
-      ),
+
+
+  TextStyle _styleTextCustom(bool screenWidth) {
+    return TextStyle(
+      color: Colors.white,
+      fontSize: screenWidth ? 14 : 18,
+      fontWeight: FontWeight.bold,
     );
   }
 }

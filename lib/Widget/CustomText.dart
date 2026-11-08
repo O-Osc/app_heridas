@@ -5,12 +5,14 @@ class Customtext extends StatelessWidget {
   final String text;
   final Color? textColor;
   final double? fontSize;
+  final bool isBold;
 
   const Customtext({
     super.key,
     required this.text,
     this.textColor,
     this.fontSize,
+    this.isBold = false,
   });
 
   @override
@@ -21,6 +23,7 @@ class Customtext extends StatelessWidget {
       style: TextStyle(
         color: textColor ?? AppColors.negroOscuro,
         fontSize: fontSize ?? 14,
+        fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
       ),
     );
   }
