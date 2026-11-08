@@ -54,3 +54,5 @@ app.*.map.json
 .widget_preview/
 .gitignore
 branch_structure.json
+config.bat
+node_modules
