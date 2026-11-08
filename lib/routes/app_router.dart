@@ -9,7 +9,7 @@ import 'package:go_router/go_router.dart';
 final GoRouter appRouter = GoRouter(
   initialLocation: '/',
   routes: [
-    GoRoute(path: '/', builder: (context, state) => const ProfilePatient()),
+    GoRoute(path: '/', builder: (context, state) => const Login()),
     GoRoute(
       path: '/login-register',
       builder: (context, state) => RegisterUser(),
